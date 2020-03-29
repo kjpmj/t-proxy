@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="LISTEN_PORT">46509</entry>
+	<entry key="LISTEN_TYPE">HTTP</entry>
+	<entry key="CONNECT_TIMEOUT_MILLIS">5000</entry>
+
+	<entry key="BOSS_GROUP_THREAD_NO">1</entry>
+	<entry key="WORKER_GROUP_THREAD_NO">5</entry>
+
+	<!-- entry key="HTTP_SSL_CERT_NAME">../cert/keyutil_61.100.30.188_1071754655444111218.crt</entry-->
+	<!-- entry key="HTTP_SSL_KEY_NAME">../cert/keyutil_61.100.30.188_4397010083701128269.key</entry-->
+
+</properties>

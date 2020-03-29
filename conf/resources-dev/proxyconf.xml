@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="LISTEN_PORT">46509</entry>
+	<entry key="LISTEN_TYPE">HTTPS</entry>
+	<entry key="CONNECT_TIMEOUT_MILLIS">5000</entry>
+
+	<entry key="BOSS_GROUP_THREAD_NO">1</entry>
+	<entry key="WORKER_GROUP_THREAD_NO">5</entry>
+
+	<entry key="HTTP_SSL_CERT_NAME">C:\\Users\\MJ\\Desktop\\dev\\02_ecilpse\\project\\T-PROXY\\conf\\resources-dev\\private.crt</entry>
+	<entry key="HTTP_SSL_KEY_NAME">C:\\Users\\MJ\\Desktop\\dev\\02_ecilpse\\project\\T-PROXY\\conf\\resources-dev\\pkcs8_key.key</entry>
+
+</properties>
