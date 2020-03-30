@@ -60,7 +60,12 @@ public class ServerInboundHandler extends ChannelInboundHandlerAdapter {
 //			}
 
 			// ProxyRequestVO 생성
-			vo = NettyUtil.createProxyRequestVO(reqContent);
+			if(reqContent != null) {
+				vo = NettyUtil.createProxyRequestVO(reqContent);
+			}else{
+				vo = NettyUtil.createProxyRequestVO(msg);
+			}
+			
 
 			// msg 설정
 			vo.setMsg(msg);

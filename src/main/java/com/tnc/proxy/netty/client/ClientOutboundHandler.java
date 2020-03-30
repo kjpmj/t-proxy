@@ -3,7 +3,6 @@ package com.tnc.proxy.netty.client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -26,14 +25,6 @@ public class ClientOutboundHandler extends ChannelOutboundHandlerAdapter{
 		FullHttpRequest fhr = null;
 		if(msg instanceof FullHttpRequest) {
 			fhr = (FullHttpRequest) msg;
-			
-			byte[] bytes = ByteBufUtil.getBytes(fhr.content());
-			
-			for(byte b: bytes) {
-				System.out.print((char) b);
-			}
-			System.out.println();
-			
 			fhr.setUri(destPath);
 		}
 		

@@ -29,8 +29,6 @@ public class ClientBootstrapper {
 		String destPath = StringUtil.isNullOrEmpty(map.get("destPath")) ? "/" : map.get("destPath");
 		String protocol = map.get("protocol");
 		
-		System.out.println(protocol);
-		
 		Bootstrap bootstrap = new Bootstrap();
 		bootstrap.channel(NioSocketChannel.class).group(channelHandlerContext.channel().eventLoop())
 				.handler(new ClientInitializer(channelHandlerContext, msg, destPath, protocol));

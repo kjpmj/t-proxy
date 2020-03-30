@@ -7,7 +7,7 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.util.ReferenceCountUtil;
 
 public class ClientInboundHandler extends ChannelInboundHandlerAdapter {
 	Logger logger = LoggerFactory.getLogger(ClientInboundHandler.class);
@@ -29,17 +29,16 @@ public class ClientInboundHandler extends ChannelInboundHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		logger.info("ClientInboundHandler > channelRead");
-
-		FullHttpResponse response = (FullHttpResponse) msg;
-
-		channelHandlerContext.write(response.retain());
+		
+		ReferenceCountUtil.retain(msg);
+		
+		channelHandlerContext.write(msg);
 		ChannelFuture future = ctx.close();
 
 		future.addListener(new ChannelFutureListener() {
 			@Override
 			public void operationComplete(ChannelFuture channelFuture) throws Exception {
 				logger.info("ClientInboundHandler > channelRead > isSuccess : " + channelFuture.isSuccess());
-
 			}
 		});
 	}

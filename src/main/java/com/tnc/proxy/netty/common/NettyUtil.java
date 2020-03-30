@@ -42,11 +42,11 @@ public class NettyUtil {
 	 * @return
 	 */
 	public static NettyVO createProxyRequestVO(HttpContent httpContent) throws Exception{
-		NettyVO proxyRequestVO = null;
+		NettyVO nettyVO = null;
 		ObjectMapper objectMapper = new ObjectMapper();
 		
-		// vo에 등록되어있지 않은 항목 체크
-		objectMapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		// vo에 등록되어있지 않은 항목 허용
+		objectMapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		// null 혹은 비어있는 항목은 변환하지 않는다.
 		objectMapper.setSerializationInclusion(Inclusion.NON_NULL);
 		
@@ -58,9 +58,30 @@ public class NettyUtil {
 			
 		}
 		// HttpRequestBody에 포함된 항목으로 VO 생성 VO에 선언 안된 항목이 넘어올 시 UnrecognizedPropertyException
-		proxyRequestVO = objectMapper.readValue(bytes, NettyVO.class);
+		nettyVO = objectMapper.readValue(bytes, NettyVO.class);
 		
-		return proxyRequestVO;
+		return nettyVO;
+	}
+	
+	/**
+	 * ProxyRequestVO TCP용 생성
+	 * @param msg
+	 * @return
+	 */
+	public static NettyVO createProxyRequestVO(Object msg) throws Exception{
+		NettyVO nettyVO = null;
+		ObjectMapper objectMapper = new ObjectMapper();
+		
+		// vo에 등록되어있지 않은 항목 허용
+		objectMapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		// null 혹은 비어있는 항목은 변환하지 않는다.
+		objectMapper.setSerializationInclusion(Inclusion.NON_NULL);
+		
+		ByteBuf buf = (ByteBuf) msg;
+		byte[] bytes = ByteBufUtil.getBytes(buf);
+		nettyVO = objectMapper.readValue(bytes, NettyVO.class);
+		
+		return nettyVO;
 	}
 	
 	/**

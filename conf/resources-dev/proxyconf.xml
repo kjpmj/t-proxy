@@ -8,7 +8,7 @@
 	<entry key="BOSS_GROUP_THREAD_NO">1</entry>
 	<entry key="WORKER_GROUP_THREAD_NO">5</entry>
 
-	<entry key="HTTP_SSL_CERT_NAME">C:\\Users\\MJ\\Desktop\\dev\\02_ecilpse\\project\\T-PROXY\\conf\\resources-dev\\private.crt</entry>
-	<entry key="HTTP_SSL_KEY_NAME">C:\\Users\\MJ\\Desktop\\dev\\02_ecilpse\\project\\T-PROXY\\conf\\resources-dev\\pkcs8_key.key</entry>
+	<entry key="HTTP_SSL_CERT_NAME">C:\Users\MJ\Desktop\dev\tnc_work\workspace-pg\t-proxy\conf\resources-dev\private.crt</entry>
+	<entry key="HTTP_SSL_KEY_NAME">C:\Users\MJ\Desktop\dev\tnc_work\workspace-pg\t-proxy\conf\resources-dev\pkcs8_key.key</entry>
 
 </properties>
